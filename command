@@ -4,3 +4,5 @@ You can redirect the standard streams:
   ‘2> file’ redirects stderr to a file
   ‘&> file’ redirects stdout and stderr to a file
   ‘2>&1’ redirects stderr to stdout!
+
+
