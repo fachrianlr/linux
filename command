@@ -6,3 +6,4 @@ You can redirect the standard streams:
   ‘2>&1’ redirects stderr to stdout!
 
 
+/bin/bash^M: bad interpreter: No such file or directory => sed -i -e 's/\r$//' name_file.sh
