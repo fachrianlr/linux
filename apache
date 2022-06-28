@@ -1,0 +1,17 @@
+1. create custom .conf file example "localhost.conf"
+2. create vhost :
+
+<VirtualHost *:80>
+DocumentRoot /var/www/html
+ServerName localhost
+<Directory /var/www/html>
+Options Indexes FollowSymlinks
+AllowOverride All
+</Directory>
+#RewriteEngine on
+#RewriteCond %{SERVER_NAME} =localhost [OR]
+#RewriteCond %{SERVER_NAME} =[saveduit.bankjateng.co.id](http://saveduit.bankjateng.co.id/)
+#RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [L,NE,R=permanent]
+</VirtualHost>
+
+3. vhost diatas agar bisa membuka ip/folder_project 
