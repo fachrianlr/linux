@@ -1,0 +1,7 @@
+Backup ALL
+
+pg_dumpall -U postgres > F:/all_db.sql
+
+Restore ALL
+
+psql.exe -U postgres < E:/all_db.sql 
