@@ -1,0 +1,85 @@
+install python from source 
+
+- example Then, download Python 3.6 from source:
+- wget [https://www.python.org/ftp/python/3.6.12/Python-3.6.12.tgz](https://www.python.org/ftp/python/3.6.12/Python-3.6.12.tgz)
+- tar xvf Python-3.6.12.tgz
+- cd Python-3.6.12
+- ./configure
+- sudo make altinstall
+
+create pythonenv :
+
+- python3.6 -m venv /path/to/new/virtual/environment
+
+create user odoo 
+
+- sudo adduser --system --quiet --shell=/bin/bash --home=/odoo --gecos 'odoo' --group odoo
+
+add sudoers to odoo user
+
+- sudo adduser $OE_USER sudo
+
+create user postgres
+
+- sudo su - postgres
+- psql
+- CREATE USER odoo WITH ENCRYPTED PASSWORD 'adminroot' CREATEDB;
+
+install wkhtml
+
+pilih versi wkhtml sesuai linux versinya  [https://github.com/wkhtmltopdf/wkhtmltopdf/releases/](https://github.com/wkhtmltopdf/wkhtmltopdf/releases/)
+
+- sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
+- sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin
+
+clone repo 
+
+git clone --depth 1 --branch 13.0 [https://www.github.com/odoo/odoo](https://www.github.com/odoo/odoo) 
+
+setting file config
+
+- nano /etc/odoo-server.conf
+- sudo chmod 640 /etc/odoo-server.conf
+- [options]
+; This is the password that allows database operations:
+; admin_passwd = admin
+db_host = localhost
+db_port = 5432
+db_user = odoo
+db_password = adminroot
+addons_path = /odoo/odoo13/odoo/addons,/odoo/odoo13/addons
+    
+    #xmlrpc_port = 8000
+    
+
+create auto start file
+
+- nano /etc/systemd/system/odoo.service
+    
+    [Unit]
+    
+    Description=Odoo Service
+    
+    Requires=postgresql.service
+    
+    After=network.target postgresql.service
+    
+    [Service]
+    
+    Type=simple
+    
+    SyslogIdentifier=eretda
+    
+    PermissionsStartOnly=true
+    
+    User=odoo
+    
+    Group=odoo
+    
+    ExecStart=/opt/odoo13/odoo-bin -c /opt/config13.conf
+    
+    StandardOutput=journal+console
+    
+    [Install]
+    
+    WantedBy=multi-user.target
