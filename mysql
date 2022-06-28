@@ -1,0 +1,13 @@
+-- grant on specific ip
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.63.10.66' IDENTIFIED BY 'keepmoving' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.63.10.71' IDENTIFIED BY 'keepmoving' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.63.10.83' IDENTIFIED BY 'keepmoving' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.66.10.32' IDENTIFIED BY 'Jateng123!' WITH GRANT OPTION;
+-- grant on specific ip
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'root'@'10.63.10.83';
+
+-- flush
+FLUSH PRIVILEGES;
+
+SELECT * from information_schema.user_privileges where grantee like "'root'%"; 
