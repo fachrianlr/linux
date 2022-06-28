@@ -1,7 +1,15 @@
 Backup ALL
-
 pg_dumpall -U postgres > F:/all_db.sql
 
 Restore ALL
-
 psql.exe -U postgres < E:/all_db.sql 
+
+
+grant specific IP on postgres
+1. run sql:
+postgres=# show hba_file ;
+
+2. add ip on hba_file 
+host	all	127.0.0.1/32	trust
+
+3. restart postgres services
