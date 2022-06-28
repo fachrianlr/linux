@@ -1,0 +1,16 @@
+ create and install python env from source:
+
+- example Then, download Python 3.6 from source:
+- wget [https://www.python.org/ftp/python/3.6.12/Python-3.6.12.tgz](https://www.python.org/ftp/python/3.6.12/Python-3.6.12.tgz)
+- tar xvf Python-3.6.12.tgz
+- cd Python-3.6.12
+- ./configure
+- sudo make altinstall
+
+create pythonenv :
+
+- python3.6 -m venv /path/to/new/virtual/environment
+
+active env:
+
+source /path/bin/active
