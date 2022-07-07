@@ -11,7 +11,5 @@
 su root 
 nano /etc/sudoers
 linux_user ALL=(ALL)  ALL
-
-
-
-
+or using this:
+sudo usermod -aG sudo newuser
