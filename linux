@@ -7,6 +7,10 @@
 
 # /bin/bash^M: bad interpreter: No such file or directory => sed -i -e 's/\r$//' name_file.sh
 
+#create new linux user :
+sudo useradd -m -d /home/rian -s /bin/bash rian
+passwd username
+
 # make sudoers specific users in linux :
 su root 
 nano /etc/sudoers
