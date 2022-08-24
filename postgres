@@ -16,5 +16,5 @@ host	all	127.0.0.1/32	trust
 
 Backup postgres DB on Bash Linux:
 1. create cron: crontab -e
-2. script cront : **pg_dump --no-password -U postgres bpmks_live -h localhost > /home/server1/db_backup_2019/bpmks_live_$(date +\%Y_\%m_\%d).pgsql 2>&1**
-3. add password on file '.pgpass': nano .pgpass: **localhost:5432:bpmks_live:postgres:root**
+2. script cron : pg_dump --no-password -U postgres db_name -h localhost > /home/user1/folder/db_name_$(date +\%Y_\%m_\%d).pgsql 2>&1**
+3. add password on file '.pgpass': nano .pgpass: localhost:5432:db_name:postgres:root
